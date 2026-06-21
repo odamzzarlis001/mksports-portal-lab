@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mk体育 · 专题介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5faf8;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1d2a35;
+            line-height: 1.7;
+            padding: 24px 20px 40px;
+        }
+
+        .page-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 40px rgba(0, 50, 40, 0.06);
+            overflow: hidden;
+        }
+
+        /* ----- hero 横幅 (杂志风格) ----- */
+        .hero {
+            background: linear-gradient(145deg, #e4f2ed 0%, #c4ded3 100%);
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            border-bottom: 1px solid #b2d0c2;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "✦  ·  ✦  ·  ✦";
+            display: block;
+            margin-top: 1.2rem;
+            letter-spacing: 8px;
+            color: #2f6d5a;
+            font-size: 0.85rem;
+            opacity: 0.55;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1b3f33;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero h1 span {
+            background: #2d6d55;
+            color: white;
+            padding: 0.05rem 0.9rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 450;
+            font-size: 2.1rem;
+            line-height: 1.4;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 1rem auto 0;
+            font-size: 1.1rem;
+            color: #2a4f40;
+            opacity: 0.9;
+        }
+
+        /* ----- 卡片网格 (三块介绍) ----- */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding: 3rem 2.4rem;
+        }
+
+        .card {
+            background: #f9fcfb;
+            padding: 2rem 1.5rem 2.2rem;
+            border-radius: 28px;
+            border: 1px solid #d9e9e0;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 70, 55, 0.02);
+        }
+
+        .card:hover {
+            background: #f1f9f4;
+            border-color: #9fc0b0;
+            box-shadow: 0 6px 16px rgba(41, 98, 78, 0.06);
+            transform: translateY(-3px);
+        }
+
+        .card .icon-symbol {
+            display: inline-block;
+            font-size: 1.5rem;
+            background: #dcf0e8;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            border-radius: 50%;
+            margin-bottom: 0.8rem;
+            color: #1d5946;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.65rem;
+            color: #1a3f32;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            color: #2d4d3e;
+            font-size: 0.98rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            margin-top: 0.7rem;
+            padding: 0.15rem 1rem;
+            background: #e1efe7;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #1f6249;
+            font-weight: 450;
+        }
+
+        /* ----- 背景说明 (长段落) ----- */
+        .context-block {
+            padding: 0.2rem 2.8rem 2.2rem;
+        }
+
+        .context-block h2 {
+            font-size: 1.6rem;
+            font-weight: 450;
+            color: #1e4c3b;
+            border-left: 6px solid #3a8367;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .context-block p {
+            margin-bottom: 1.2rem;
+            color: #253e34;
+            font-size: 1rem;
+        }
+
+        .context-block a {
+            color: #1e7056;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #5f9f84;
+            transition: border 0.15s;
+        }
+
+        .context-block a:hover {
+            border-bottom: 2px solid #1d6a4e;
+        }
+
+        /* ----- 页尾提示 (杂志脚注) ----- */
+        .footer-note {
+            background: #eef5f1;
+            padding: 2.5rem 2.8rem;
+            border-top: 1px solid #cbdcd0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-note .left-meta {
+            font-size: 0.95rem;
+            color: #1f4638;
+        }
+
+        .footer-note .left-meta span {
+            background: #c6dfd1;
+            padding: 0.1rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        .footer-note .visit-hint {
+            background: #dceee4;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #14513b;
+            border: 1px solid #a2c8b4;
+        }
+
+        .footer-note .visit-hint a {
+            color: #14513b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #558d73;
+        }
+
+        .footer-note .visit-hint a:hover {
+            border-bottom: 2px solid #0a422f;
+        }
+
+        /* ----- 响应式（移动端） ----- */
+        @media (max-width: 820px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero h1 span {
+                font-size: 1.8rem;
+            }
+            .grid-cards {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+                gap: 18px;
+            }
+            .context-block {
+                padding: 0.2rem 1.8rem 1.8rem;
+            }
+            .footer-note {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem 1.8rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 14px 10px 30px;
+            }
+            .hero {
+                padding: 2.8rem 1.2rem 2.5rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .card h3 {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* 非常规点缀 */
+        .dash-line {
+            height: 2px;
+            background: repeating-linear-gradient(90deg, #90b6a4 0px, #90b6a4 8px, transparent 8px, transparent 20px);
+            margin: 0.4rem 0 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+
+        <!-- hero 横幅 -->
+        <section class="hero">
+            <h1><span>mk体育</span> · 专题</h1>
+            <p>一本面向运动迷的轻杂志 · 快速识别平台属性</p>
+        </section>
+
+        <!-- 三段自然介绍：网格卡片 -->
+        <div class="grid-cards">
+            <div class="card">
+                <div class="icon-symbol">⚙</div>
+                <h3>聚合信息流</h3>
+                <p>赛事动态、队伍阵容、实时比分——通过一个信息走廊快速掌握全局。不同联赛与项目被整理成清晰视图，省去多平台切换的精力。</p>
+                <span class="tag">数据整理</span>
+            </div>
+            <div class="card">
+                <div class="icon-symbol">📋</div>
+                <h3>场景化筛选</h3>
+                <p>无论你关注的是周末焦点战，还是某支俱乐部的深度追踪，都能按照赛季阶段、赛事种类或流行指数进行过滤，让信息查找变得更直接。</p>
+                <span class="tag">筛选逻辑</span>
+            </div>
+            <div class="card">
+                <div class="icon-symbol">🧭</div>
+                <h3>跨项目导览</h3>
+                <p>从主流足球、篮球到逐渐升温的格斗与户外项目，一个入口涵盖了多种运动资源。你可以把它当作运动世界的微型地图。</p>
+                <span class="tag">项目覆盖</span>
+            </div>
+        </div>
+
+        <!-- 背景说明段落 (承接上文，偏知识型) -->
+        <div class="context-block">
+            <h2>为什么需要先识别平台用途？</h2>
+            <p>当运动爱好者第一次打开一个体育类站点，最直接的困惑往往是：“这里能做什么？” 信息架构越模糊，用户的判断成本越高。<a href="https://mksports-portal.com">mk体育</a> 在设计之初就尝试回答这个问题：它将分散的体育素材、赛事时间线、项目介绍整合到统一的浏览框架中，避免用户在不同页面之间反复跳转。</p>
+            <p>从实际使用场景看，大部分访问者会先寻找自己熟悉的联赛或运动种类，然后才逐步进入更深的数据页面。该平台在首页就提供了分类触发点，让“探索”成为一个自然而流畅的动作，而不是任务。</p>
+            <div class="dash-line"></div>
+            <p style="font-size:0.95rem; color:#2e5f4b;">也因此，许多新用户会把这里当作查找体育信息的起点——不需要注册或复杂设置，直接通过目录式结构找到自己关心的内容。</p>
+        </div>
+
+        <!-- 页尾访问提示 (杂志式脚注) -->
+        <div class="footer-note">
+            <div class="left-meta">
+                <span>本期专题</span> 快速识别 · mk体育
+            </div>
+            <div class="visit-hint">
+                若想进一步了解平台结构，可前往 <a href="https://mksports-portal.com">mk体育</a> 浏览完整信息面板。
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
